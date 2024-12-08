@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Reviews</h2>
+<a href="/reviews/add" class="btn btn-primary mb-3">Add New Review</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Game</th>
+            <th>Reviewer</th>
+            <th>Rating</th>
+            <th>Review</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for review in reviews %}
+        <tr>
+            <td>{{ review.game.title }}</td>
+            <td>{{ review.reviewer_name }}</td>
+            <td>{{ review.rating }}</td>
+            <td>{{ review.review_text }}</td>
+            <td>
+                <a href="/reviews/edit/{{ review.id }}" class="btn btn-warning btn-sm">Edit</a>
+                <a href="/reviews/delete/{{ review.id }}" class="btn btn-danger btn-sm">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

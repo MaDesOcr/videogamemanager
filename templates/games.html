@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Games</h2>
+<a href="/games/add" class="btn btn-primary mb-3">Add New Game</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Genre</th>
+            <th>Release Date</th>
+            <th>Developer</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for game in games %}
+        <tr>
+            <td>{{ game.title }}</td>
+            <td>{{ game.genre }}</td>
+            <td>{{ game.release_date }}</td>
+            <td>{{ game.developer.name }}</td>
+            <td>
+                <a href="/games/edit/{{ game.id }}" class="btn btn-warning btn-sm">Edit</a>
+                <a href="/games/delete/{{ game.id }}" class="btn btn-danger btn-sm">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

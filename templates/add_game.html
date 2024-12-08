@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Add Game</h2>
+<form method="POST">
+    <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input type="text" class="form-control" name="title" required>
+    </div>
+    <div class="mb-3">
+        <label for="genre" class="form-label">Genre</label>
+        <input type="text" class="form-control" name="genre" required>
+    </div>
+    <div class="mb-3">
+        <label for="release_date" class="form-label">Release Date</label>
+        <input type="date" class="form-control" name="release_date" required>
+    </div>
+    <div class="mb-3">
+        <label for="developer_id" class="form-label">Developer</label>
+        <select class="form-control" name="developer_id">
+            {% for developer in developers %}
+            <option value="{{ developer.id }}">{{ developer.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Add Game</button>
+</form>
+{% endblock %}

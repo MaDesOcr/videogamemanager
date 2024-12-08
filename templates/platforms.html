@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Platforms</h2>
+<a href="/platforms/add" class="btn btn-primary mb-3">Add New Platform</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Manufacturer</th>
+            <th>Release Year</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for platform in platforms %}
+        <tr>
+            <td>{{ platform.name }}</td>
+            <td>{{ platform.manufacturer }}</td>
+            <td>{{ platform.release_year }}</td>
+            <td>
+                <a href="/platforms/edit/{{ platform.id }}" class="btn btn-warning btn-sm">Edit</a>
+                <a href="/platforms/delete/{{ platform.id }}" class="btn btn-danger btn-sm">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

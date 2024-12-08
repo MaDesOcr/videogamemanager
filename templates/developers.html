@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Developers</h2>
+<a href="/developers/add" class="btn btn-primary mb-3">Add New Developer</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Founded</th>
+            <th>Headquarters</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for developer in developers %}
+        <tr>
+            <td>{{ developer.name }}</td>
+            <td>{{ developer.founded }}</td>
+            <td>{{ developer.headquarters }}</td>
+            <td>
+                <a href="/developers/edit/{{ developer.id }}" class="btn btn-warning btn-sm">Edit</a>
+                <a href="/developers/delete/{{ developer.id }}" class="btn btn-danger btn-sm">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

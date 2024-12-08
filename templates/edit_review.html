@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Edit Review</h2>
+<form method="POST">
+    <div class="mb-3">
+        <label for="game_id" class="form-label">Game</label>
+        <select class="form-control" name="game_id" required>
+            {% for game in games %}
+            <option value="{{ game.id }}" {% if game.id == review.game_id %}selected{% endif %}>{{ game.title }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="reviewer_name" class="form-label">Reviewer Name</label>
+        <input type="text" class="form-control" name="reviewer_name" value="{{ review.reviewer_name }}" required>
+    </div>
+    <div class="mb-3">
+        <label for="rating" class="form-label">Rating</label>
+        <input type="number" class="form-control" name="rating" min="1" max="10" value="{{ review.rating }}" required>
+    </div>
+    <div class="mb-3">
+        <label for="review_text" class="form-label">Review Text</label>
+        <textarea class="form-control" name="review_text" rows="3">{{ review.review_text }}</textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Update Review</button>
+</form>
+{% endblock %}

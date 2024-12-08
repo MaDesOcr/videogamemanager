@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Edit Platform</h2>
+<form method="POST">
+    <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" name="name" value="{{ platform.name }}" required>
+    </div>
+    <div class="mb-3">
+        <label for="manufacturer" class="form-label">Manufacturer</label>
+        <input type="text" class="form-control" name="manufacturer" value="{{ platform.manufacturer }}" required>
+    </div>
+    <div class="mb-3">
+        <label for="release_year" class="form-label">Release Year</label>
+        <input type="number" class="form-control" name="release_year" value="{{ platform.release_year }}" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Update Platform</button>
+</form>
+{% endblock %}
